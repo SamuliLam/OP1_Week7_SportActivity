@@ -22,6 +22,14 @@ public class SportActivityTest {
     }
 
     @Test
+    public void removeActivity() {
+        sportActivity.addActivity("Running", 2.5);
+        sportActivity.addActivity("Swimming", 1.5);
+        sportActivity.removeActivity("Running");
+        assertEquals(1, sportActivity.activities.size());
+    }
+
+    @Test
     public void printActivities() {
         sportActivity.addActivity("Running", 2.5);
         sportActivity.addActivity("Swimming", 1.5);
@@ -29,6 +37,9 @@ public class SportActivityTest {
     }
 
     @Test
-    public void readInput() {
+    public void hoursSpent() {
+        sportActivity.addActivity("Running", 2.5);
+        sportActivity.addActivity("Swimming", 1.5);
+        assertEquals(4.0, sportActivity.getHoursSpent(), 0.0001);
     }
 }

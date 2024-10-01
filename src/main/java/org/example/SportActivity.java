@@ -3,13 +3,22 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class SportActivity {
-    HashMap<String, Double> activities = new HashMap<>();
-    Scanner scanner = new Scanner(System.in);
+
+    private double hoursSpent;
+    HashMap<String, Double> activities;
+    Scanner scanner;
 
     String[] options = {"Add activity", "Remove activity", "Print activities", "Exit"};
 
-    public void addActivity(String name, double hoursSpent) {
+    public SportActivity() {
+        activities = new HashMap<>();
+        scanner = new Scanner(System.in);
+        hoursSpent = 0;
+    }
+
+    public void addActivity(String name, double activityHours) {
         activities.put(name, hoursSpent);
+        hoursSpent += activityHours;
     }
 
     public void removeActivity(String name) {
@@ -17,12 +26,14 @@ public class SportActivity {
     }
 
     public void printActivities() {
-        double totalHours = 0;
         for (String key : activities.keySet()) {
-            totalHours += activities.get(key);
             System.out.println(key + ": " + "Hours spent: " + activities.get(key));
         }
-        System.out.println("Total hours spent: " + totalHours);
+        System.out.println("Total hours spent: " + hoursSpent);
+    }
+
+    public double getHoursSpent() {
+        return hoursSpent;
     }
 
     public void readInput() {
