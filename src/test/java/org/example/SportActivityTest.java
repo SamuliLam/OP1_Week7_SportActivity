@@ -15,14 +15,14 @@ public class SportActivityTest {
     }
 
     @Test
-    public void addActivity() {
+    public void testAddActivity() {
         sportActivity.addActivity("Running", 2.5);
         sportActivity.addActivity("Swimming", 1.5);
         assertEquals(2, sportActivity.activities.size());
     }
 
     @Test
-    public void removeActivity() {
+    public void testRemoveActivity() {
         sportActivity.addActivity("Running", 2.5);
         sportActivity.addActivity("Swimming", 1.5);
         sportActivity.removeActivity("Running");
@@ -30,14 +30,14 @@ public class SportActivityTest {
     }
 
     @Test
-    public void printActivities() {
+    public void testPrintActivities() {
         sportActivity.addActivity("Running", 2.5);
         sportActivity.addActivity("Swimming", 1.5);
         sportActivity.printActivities();
     }
 
     @Test
-    public void hoursSpent() {
+    public void testHoursSpent() {
         sportActivity.addActivity("Running", 2.5);
         sportActivity.addActivity("Swimming", 1.5);
         assertEquals(4.0, sportActivity.getHoursSpent(), 0.0001);
