@@ -6,10 +6,14 @@ public class SportActivity {
     HashMap<String, Double> activities = new HashMap<>();
     Scanner scanner = new Scanner(System.in);
 
-    String[] options = {"Add activity", "Print activities", "Exit"};
+    String[] options = {"Add activity", "Remove activity", "Print activities", "Exit"};
 
     public void addActivity(String name, double hoursSpent) {
         activities.put(name, hoursSpent);
+    }
+
+    public void removeActivity(String name) {
+        activities.remove(name);
     }
 
     public void printActivities() {
@@ -39,9 +43,19 @@ public class SportActivity {
                     addActivity(name, hoursSpent);
                     break;
                 case 2:
-                    printActivities();
+                    System.out.println("Enter activity name: ");
+                    String activityName = scanner.nextLine();
+                    if (activities.containsKey(activityName)) {
+                        removeActivity(activityName);
+                        System.out.println("Activity removed");
+                    } else {
+                        System.out.println("Activity not found");
+                    }
                     break;
                 case 3:
+                    printActivities();
+                    break;
+                case 4:
                     break;
                 default:
                     System.out.println("Invalid choice");
