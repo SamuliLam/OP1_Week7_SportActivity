@@ -8,6 +8,7 @@ public class SportActivity {
     HashMap<String, Double> activities;
     Scanner scanner;
 
+    // Input options for the user to choose from
     String[] options = {"Add activity", "Remove activity", "Print activities", "Exit"};
 
     public SportActivity() {
@@ -38,9 +39,11 @@ public class SportActivity {
 
     public void readInput() {
         int choice = 0;
+        // Loop until the user chooses number "3", which is to exit
         while (choice != 3) {
             System.out.println("Choose an option: ");
             for (int i = 0; i < options.length; i++) {
+                // Print the options for the user to choose from, in format "(number). (option)"
                 System.out.println((i + 1) + ". " + options[i]);
             }
             choice = scanner.nextInt();
